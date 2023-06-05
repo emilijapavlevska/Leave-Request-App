@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "802793673563",
+    "project_id": "leave-request-app-af944",
+    "storage_bucket": "leave-request-app-af944.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:802793673563:android:48d42c60835372d0f9807e",
+        "android_client_info": {
+          "package_name": "com.example.leaverequestapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "802793673563-ssm2l98g0q5g81cg381lgi3ohuntm4qr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVHrV_5dCX3tv5J0BiOmNCnwFtaHmGn8Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "802793673563-ssm2l98g0q5g81cg381lgi3ohuntm4qr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
