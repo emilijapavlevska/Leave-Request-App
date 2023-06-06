@@ -1,4 +1,6 @@
 <resources>
     <string name="app_name">Leave Request App</string>
     <string name="facebook_app_id">814535450089185</string>
+    <string name="facebook_application_id">814535450089185h</string>
+
 </resources>
