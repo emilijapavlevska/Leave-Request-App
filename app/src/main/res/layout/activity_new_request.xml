@@ -17,12 +17,36 @@
             android:text="Choose Date:"
             android:layout_margin="16dp"/>
 
+        <Button
+            android:id="@+id/selectDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:text="Select Date" />
 
-        <DatePicker
-            android:id="@+id/datePicker"
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_margin="16dp"/>
+        <TextView
+            android:id="@+id/startDateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Start date:"
+            android:layout_marginStart="16dp"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/endDateText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="End date:"
+            android:layout_marginStart="16dp"
+            android:visibility="gone"/>
+
+
+
+        <!--        <DatePicker-->
+<!--            android:id="@+id/datePicker"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="400dp"-->
+<!--            android:layout_margin="16dp"/>-->
 
         <TextView
             android:layout_width="wrap_content"

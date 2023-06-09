@@ -12,6 +12,7 @@ import android.widget.Toast;
 import com.firebase.ui.auth.AuthUI;
 import com.firebase.ui.auth.FirebaseAuthUIActivityResultContract;
 import com.google.firebase.FirebaseApp;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.Arrays;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
 
         FirebaseApp firebaseApp = FirebaseApp.initializeApp(this);
@@ -37,6 +39,11 @@ public class MainActivity extends AppCompatActivity {
         signInButton = findViewById(R.id.signInButton);
         newRequestButton = findViewById(R.id.newRequestButton);
         historyButton = findViewById(R.id.historyButton);
+    }
+
+    public void onHistoryButtonClicked(View view) {
+        Intent intent = new Intent(this, RequestsHistoryActivity.class);
+        startActivity(intent);
     }
 
     public void onSignInButtonClicked(View view) {
@@ -79,7 +86,4 @@ public class MainActivity extends AppCompatActivity {
         signInLauncher.launch(signInIntent);
     }
 
-    public void onHistoryButtonClicked(View view) {
-        // Handle history button click event
-    }
 }
