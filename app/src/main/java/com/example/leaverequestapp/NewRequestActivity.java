@@ -1,5 +1,6 @@
 package com.example.leaverequestapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.util.Pair;
 import androidx.room.Room;
@@ -15,8 +16,15 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.datepicker.MaterialDatePicker;
 import com.google.android.material.datepicker.MaterialPickerOnPositiveButtonClickListener;
+import com.google.firebase.analytics.FirebaseAnalytics;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -76,11 +84,18 @@ public class NewRequestActivity extends AppCompatActivity {
                 String comment = commentEditText.getText().toString();
                 String startDate = startDateText.getText().toString().replace("Start date: ", "");
                 String endDate = endDateText.getText().toString().replace("End date: ", "");
-                String userId = ""; // Add the logic to retrieve the user ID
 
                 if (requestType.isEmpty() || comment.isEmpty() || startDate.isEmpty() || endDate.isEmpty()) {
                     Toast.makeText(getApplicationContext(), "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 } else {
+                    String userId = ""; // Default empty user ID
+
+                    // Retrieve the user ID from Firebase Authentication if available
+                    FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
+                    if (currentUser != null) {
+                        userId = currentUser.getUid();
+                    }
+
                     LeaveRequest leaveRequest = new LeaveRequest(requestType, startDate, endDate, comment, userId, getCurrentDate());
 
                     Executor executor = Executors.newSingleThreadExecutor();
@@ -88,18 +103,35 @@ public class NewRequestActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             leaveRequestDao.insert(leaveRequest);
-                            runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(getApplicationContext(), "Leave request saved", Toast.LENGTH_SHORT).show();
-                                    finish();
-                                }
-                            });
+
+                            FirebaseFirestore db = FirebaseFirestore.getInstance();
+
+                            // Add the leaveRequest to the "leave-requests" collection
+                            db.collection("leave-requests")
+                                    .add(leaveRequest)
+                                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                        @Override
+                                        public void onSuccess(DocumentReference documentReference) {
+                                            FirebaseAnalytics.getInstance(getApplicationContext()).logEvent("requestCreated", null);
+                                            Toast.makeText(getApplicationContext(), "Leave request saved", Toast.LENGTH_SHORT).show();
+                                            finish();
+                                        }
+                                    })
+                                    .addOnFailureListener(new OnFailureListener() {
+                                        @Override
+                                        public void onFailure(@NonNull Exception e) {
+                                            FirebaseAnalytics.getInstance(getApplicationContext()).logEvent("requestCreated", null);
+                                            Toast.makeText(getApplicationContext(), "Failed to save leave request", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
                         }
                     });
+
+
                 }
             }
         });
+
         closeButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

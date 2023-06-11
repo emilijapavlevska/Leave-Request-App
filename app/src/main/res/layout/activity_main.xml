@@ -4,39 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background4"
     tools:context=".MainActivity">
 
     <Button
         android:id="@+id/signInButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Sign In"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:onClick="onSignInButtonClicked"
+        android:text="@string/sign_in"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:onClick="onSignInButtonClicked" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/newRequestButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Request"
-        app:layout_constraintTop_toBottomOf="@+id/signInButton"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:onClick="onNewRequestButtonClicked"
+        android:text="@string/new_request"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:onClick="onNewRequestButtonClicked" />
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/signInButton" />
 
     <Button
         android:id="@+id/historyButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="History"
-        app:layout_constraintTop_toBottomOf="@+id/newRequestButton"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="20dp"
+        android:onClick="onHistoryButtonClicked"
+        android:text="@string/history"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp"
-        android:onClick="onHistoryButtonClicked" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/newRequestButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

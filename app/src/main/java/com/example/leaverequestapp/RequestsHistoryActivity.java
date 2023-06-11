@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import java.util.List;
 
 public class RequestsHistoryActivity extends AppCompatActivity {
@@ -22,6 +24,8 @@ public class RequestsHistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_requests_history);
+
+        FirebaseAnalytics.getInstance(getApplicationContext()).logEvent("historyOpened", null);
 
         containerLayout = findViewById(R.id.requestsContainer);
         closeButton = findViewById(R.id.closeButton);
@@ -59,8 +63,8 @@ public class RequestsHistoryActivity extends AppCompatActivity {
     private void displayLeaveRequests(List<LeaveRequest> leaveRequests) {
         for (LeaveRequest request : leaveRequests) {
             TextView textView = new TextView(this);
-            String displayText = "Date Range: " + request.getStartDate() + " to " + request.getEndDate()
-                    + "\nRequest Type: " + request.getRequestType();
+            String displayText = request.getStartDate() + " - " + request.getEndDate()
+                    + "\n " + request.getRequestType();
             textView.setText(displayText);
             containerLayout.addView(textView);
         }

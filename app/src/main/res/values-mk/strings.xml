@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Апликација за барање на одмор</string>
+    <string name="facebook_app_id">814535450089185</string>
+    <string name="facebook_application_id">814535450089185h</string>
+    <string name="sign_in">Најава</string>
+    <string name="new_request">Ново барање</string>
+    <string name="history">Историја</string>
+    <string name="choose_date">Изберете датум:</string>
+    <string name="select_date">Изберете датум</string>
+    <string name="start_date">Почетен датум:</string>
+    <string name="end_date">Краен датум:</string>
+    <string name="request_type">Тип на барање:</string>
+    <string name="comment">Коментар:</string>
+    <string name="add_your_comment_here">Додадете го вашиот коментар овде</string>
+    <string name="save">Зачувај</string>
+    <string name="close">Затвори</string>
+</resources>

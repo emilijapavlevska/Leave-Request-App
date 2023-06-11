@@ -2,5 +2,17 @@
     <string name="app_name">Leave Request App</string>
     <string name="facebook_app_id">814535450089185</string>
     <string name="facebook_application_id">814535450089185h</string>
+    <string name="sign_in">Sign In</string>
+    <string name="new_request">New Request</string>
+    <string name="history">History</string>
+    <string name="choose_date">Choose Date:</string>
+    <string name="select_date">Select Date</string>
+    <string name="start_date">Start date:</string>
+    <string name="end_date">End date:</string>
+    <string name="request_type">Request Type:</string>
+    <string name="comment">Comment:</string>
+    <string name="add_your_comment_here">Add your comment here</string>
+    <string name="save">Save</string>
+    <string name="close">Close</string>
 
 </resources>

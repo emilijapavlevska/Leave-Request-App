@@ -3,7 +3,10 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background4"
+
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,21 +17,26 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Choose Date:"
+            android:text="@string/choose_date"
+            android:textSize="15dp"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-black"
             android:layout_margin="16dp"/>
 
         <Button
             android:id="@+id/selectDate"
-            android:layout_width="wrap_content"
+            android:layout_width="158dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="16dp"
-            android:text="Select Date" />
+            android:layout_marginStart="120dp"
+            android:text="@string/select_date"
+            android:textSize="15dp" />
 
         <TextView
             android:id="@+id/startDateText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Start date:"
+            android:text="@string/start_date"
             android:layout_marginStart="16dp"
             android:visibility="gone"/>
 
@@ -36,7 +44,7 @@
             android:id="@+id/endDateText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="End date:"
+            android:text="@string/end_date"
             android:layout_marginStart="16dp"
             android:visibility="gone"/>
 
@@ -51,7 +59,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Request Type:"
+            android:text="@string/request_type"
+            android:textSize="15dp"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-black"
             android:layout_margin="16dp"/>
 
         <Spinner
@@ -64,7 +75,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Comment:"
+            android:text="@string/comment"
+            android:textSize="15dp"
+            android:textColor="@color/white"
+            android:fontFamily="sans-serif-black"
             android:layout_margin="16dp"/>
 
         <EditText
@@ -73,7 +87,8 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:hint="Add your comment here"
+            android:hint="@string/add_your_comment_here"
+            android:textColorHint="@color/white"
             android:maxLines="5"/>
 
         <LinearLayout
@@ -86,15 +101,16 @@
                 android:id="@+id/saveButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Save"
-                android:layout_marginEnd="16dp"/>
+                android:text="@string/save"
+                android:fontFamily="sans-serif-black"
+                android:layout_marginEnd="40dp"/>
 
             <Button
                 android:id="@+id/closeButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Close"
-                android:layout_marginEnd="16dp"/>
+                android:text="@string/close"
+                android:layout_marginEnd="90dp"/>
 
         </LinearLayout>
 

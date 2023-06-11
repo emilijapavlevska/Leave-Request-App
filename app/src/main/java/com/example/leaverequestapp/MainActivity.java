@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private Button newRequestButton;
     private Button historyButton;
 
+
     private boolean isSignedIn = false;
 
     @Override
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        FirebaseAnalytics.getInstance(getApplicationContext()).setUserProperty("type", "user");
 
 
         FirebaseApp firebaseApp = FirebaseApp.initializeApp(this);
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         signInButton = findViewById(R.id.signInButton);
         newRequestButton = findViewById(R.id.newRequestButton);
         historyButton = findViewById(R.id.historyButton);
+
+
     }
 
     public void onHistoryButtonClicked(View view) {
